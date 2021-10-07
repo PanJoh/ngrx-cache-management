@@ -27,7 +27,7 @@ export class CacheManagementService {
           return throwError(new Error(`Cannot obtain cachtag ${namespace}/${id}`));
         }
 
-        if (tag.lastUpdate == null || tag.lastUpdate + tag.ttl > now) {
+        if (tag.lastUpdate == null || tag.lastUpdate + tag.ttl < now) {
           return fetcher(true).pipe(
             tap(() => {
               const lastUpdate = Date.now();
