@@ -31,7 +31,7 @@ describe('UserEffects', () => {
       actions = hot('-a-|', { a: UserActions.init() });
 
       const expected = hot('-a-|', {
-        a: UserActions.loadUserSuccess({ user: [] }),
+        a: UserActions.loadUsersSuccess({ user: [] }),
       });
 
       expect(effects.init$).toBeObservable(expected);

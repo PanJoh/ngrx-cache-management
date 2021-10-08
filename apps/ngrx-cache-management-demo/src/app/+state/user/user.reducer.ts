@@ -34,6 +34,9 @@ const userReducer = createReducer(
   on(UserActions.loadUserSuccess, (state, { user }) =>
     userAdapter.upsertOne(user, state),
   ),
+  on(UserActions.selectUser, (state, { id }) =>
+    ({...state, selectedId: id}),
+  ),
 );
 
 export function reducer(state: State | undefined, action: Action) {

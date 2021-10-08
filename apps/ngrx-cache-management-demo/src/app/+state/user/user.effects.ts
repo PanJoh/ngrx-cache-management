@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { createEntityAdapter } from '@ngrx/entity';
 import { fetch } from '@nrwl/angular';
-import { map } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 import { UserService } from '../../services/user/user.service';
 import { noopAction } from '../common-actions/noop.action';
 
@@ -34,17 +35,32 @@ export class UserEffects {
         id: (action) => action.id,
         run: (action) => {
           return this.userService.getUserForId(action.id).pipe(
-            map(result => {
+            switchMap(result => {
               if (result.type === 'fetched') {
-                return UserActions.loadUserSuccess({user: result.user});
+                if (action.selectIt) {
+                  return of(UserActions.loadUserSuccess({user: result.user}), UserActions.selectUser({id: action.id}));
+                }
+
+                return of(UserActions.loadUserSuccess({user: result.user}));
               }
 
-              return noopAction();
+              if (action.selectIt) {
+                return of(UserActions.notifyUserLoaded(), UserActions.selectUser({id: action.id}));
+              }
+
+              return of(UserActions.notifyUserLoaded());
             })
           );
         },
       }),
     )
+  );
+
+  notifyUserLoaded$ = createEffect(() =>
+      this.actions$.pipe(
+        ofType(UserActions.loadUserSuccess),
+        map(() => UserActions.notifyUserLoaded()),
+      ),
   );
 
   constructor(

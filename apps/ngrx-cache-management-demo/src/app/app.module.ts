@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -11,12 +12,14 @@ import { reducer as cacheManagementReducer, CACHE_TAG_FEATURE_KEY, CacheManageme
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    FormsModule,
     BrowserModule,
     CacheManagementModule,
     StoreModule.forRoot({
       [CACHE_TAG_FEATURE_KEY]: cacheManagementReducer,
       [fromUser.USER_FEATURE_KEY]: fromUser.reducer,
     }),
+    EffectsModule.forRoot(),
     StoreModule.forFeature(fromUser.USER_FEATURE_KEY, fromUser.reducer),
     EffectsModule.forFeature([UserEffects]),
   ],

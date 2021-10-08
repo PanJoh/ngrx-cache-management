@@ -41,7 +41,7 @@ describe('User Selectors', () => {
     });
 
     it('getSelected() should return the selected Entity', () => {
-      const result = UserSelectors.getSelected(state) as UserEntity;
+      const result = UserSelectors.getSelectedUser(state) as UserEntity;
       const selId = getUserId(result);
 
       expect(selId).toBe('PRODUCT-BBB');

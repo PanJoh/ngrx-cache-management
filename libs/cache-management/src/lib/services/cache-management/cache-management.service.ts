@@ -8,7 +8,7 @@ import {
 import { getCacheTag } from '../../+state/cache-tag.selectors';
 import { select, Store } from '@ngrx/store';
 import { Observable, throwError } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { switchMap, take, tap } from 'rxjs/operators';
 import { State as CacheTagsState } from '../../+state/cache-tag.reducer';
 
 @Injectable({
@@ -21,6 +21,7 @@ export class CacheManagementService {
   get<T>(namespace: string, id: string, fetcher: (stale: boolean) => Observable<T>): Observable<T> {
     return this.store.pipe(
       select(getCacheTag(namespace, id)),
+      take(1),
       switchMap(tag => {
         const now = Date.now();
         if (tag == null) {
