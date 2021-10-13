@@ -11,4 +11,8 @@ caching algorithm implemented in a service.
 
 ## Api
 
+### CacheManagementService
+It's purpose is do augment entities identified by uniqe ids with caching data an algorithms. It is doing so by organizing them in namspaces, within which a id 
+has to be unique. The id for example can be the uniqe id used in ngrx entity stores.
 
+#### Methods
