@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CacheManagementService } from '@PanJoh/nx-cache-management';
+import { CacheManagementService } from '@panjoh/nx-cache-management';
 import { Observable, of, timer } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { UserEntity } from '../../+state/user/user.models';

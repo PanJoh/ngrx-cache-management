@@ -7,7 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import * as fromUser from './+state/user/user.reducer';
 import { UserEffects } from './+state/user/user.effects';
-import { reducer as cacheManagementReducer, CACHE_TAG_FEATURE_KEY, CacheManagementModule } from '@PanJoh/nx-cache-management';
+import { reducer as cacheManagementReducer, CACHE_TAG_FEATURE_KEY, CacheManagementModule } from '@panjoh/nx-cache-management';
 
 @NgModule({
   declarations: [AppComponent],

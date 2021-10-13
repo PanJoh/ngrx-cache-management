@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@PanJoh/nx-cache-management": ["libs/cache-management/src/index.ts"]
+      "@panjoh/nx-cache-management": ["libs/cache-management/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
