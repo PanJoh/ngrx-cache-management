@@ -21,7 +21,7 @@ has to be unique. The id for example can be the uniqe id used in ngrx entity sto
 This method creates a new namspace identified by the **namespace** parameter. The **ttl** parameter defines the time in millisecond that must elapse since the
 data where fetched last to become stale.
 
-***``get<T>(namespace: string, id: string, fetcher: (stale: boolean) => Observable<T>): Observable<T>``***  
+***get\<T>(namespace: string, id: string, fetcher: (stale: boolean) => Observable\<T>): Observable\<T>***  
 The purpose of this method is to include the cache management in data fetching operations.
 If the resource identified by **namespace** and **id** becomes stale the **fetcher** is called with *stale* set to true and false oterwhise.
 If the resource becomes stale, and the observable returned by the **fetcher** emits a value, the current time is used as the last fetch time of
