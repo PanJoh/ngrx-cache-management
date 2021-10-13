@@ -16,3 +16,5 @@ It's purpose is do augment entities identified by uniqe ids with caching data an
 has to be unique. The id for example can be the uniqe id used in ngrx entity stores.
 
 #### Methods
+
+*createNamespace(namespace: string, ttl: number): void*
