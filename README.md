@@ -28,15 +28,15 @@ If the resource becomes stale, and the observable returned by the **fetcher** em
 the resoure. The observable that this method returns emits whatever the observable returned by **fetcher** emits.
 
 
-***update\<T>(namespace: string, id: string, updater: () => Observable\<T>): Observable\<T>***
+***update\<T>(namespace: string, id: string, updater: () => Observable\<T>): Observable\<T>***  
 The purpose of this method is to include the cache management in update operations.
 When the observable returned by **update** emits a value the current time is tracked to be the last fetch time of the resource identified by **namespace** and **id**. The observable returned by this method returns whatever the observable returned by **updater** emits.
 
-***delete(namespace: string, id: string): void***
+***delete(namespace: string, id: string): void***  
 The purpose of this method is to remove caching information for the resource identified by **namespae** and **id**.
 
-***invalidate(namespace: string, id: string): void***
+***invalidate(namespace: string, id: string): void***  
 The purpose of this method is to invalidate caching information for the resource identified by **namespace** and **id**. This means the resource becomes stale immediately until the next fetch.
 
-***createNamespace(namespace: string, ttl: number): void***
+***createNamespace(namespace: string, ttl: number): void***  
 The purpose of this method is to create a new id namespace which is identifed by **namepsace**. For resources managed within the namspace the value specified by **ttl** is used as the time-to-live until a resource becomes stale after the last fetch.
