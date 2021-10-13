@@ -9,6 +9,9 @@ application implement the caching logic.
 A better aproach which is the purpose of this libary is, to have a mechanism to augment the data through a unique id with caching informations, and have the
 caching algorithm implemented in a service.
 
+## Remarks
+To use the library one has to import the **CacheManagementModule**. This module is adding a feature store under the name ***cacheTags***
+
 ## Api
 
 ### CacheManagementService
