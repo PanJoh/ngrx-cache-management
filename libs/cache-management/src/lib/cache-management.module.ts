@@ -8,6 +8,7 @@ import { CacheTagEffects } from './+state/cache-tag.effects';
 @NgModule({
   imports: [
     CommonModule,
+    StoreModule.forFeature(fromCacheTag.CACHE_TAG_FEATURE_KEY, fromCacheTag.reducer),
     EffectsModule.forFeature([CacheTagEffects]),
   ],
 })

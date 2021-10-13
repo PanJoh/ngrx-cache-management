@@ -15,10 +15,7 @@ import { reducer as cacheManagementReducer, CACHE_TAG_FEATURE_KEY, CacheManageme
     FormsModule,
     BrowserModule,
     CacheManagementModule,
-    StoreModule.forRoot({
-      [CACHE_TAG_FEATURE_KEY]: cacheManagementReducer,
-      [fromUser.USER_FEATURE_KEY]: fromUser.reducer,
-    }),
+    StoreModule.forRoot({}),
     EffectsModule.forRoot(),
     StoreModule.forFeature(fromUser.USER_FEATURE_KEY, fromUser.reducer),
     EffectsModule.forFeature([UserEffects]),
